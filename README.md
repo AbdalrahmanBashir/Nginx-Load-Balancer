@@ -10,7 +10,7 @@
 
 1. **QEMU permission denied on the base image**
 
-	Terraform could not create the VMs because the confined QEMU process could not read the image in `/mnt/data/vm/`, despite standard file permissions being correct. For this local lab, I edited `/etc/libvirt/qemu.conf` and set `security_driver = "none"` to bypass that confinement.
+	Terraform could not create the VMs because the confined QEMU process could not read the image in `/mnt/data/vm/` (which is mounted to a separate NVMe drive on the host for performance), despite standard file permissions being correct. For this local lab, I edited `/etc/libvirt/qemu.conf` and set `security_driver = "none"` to bypass that confinement.
 
 2. **VM boot hang and Terraform timeout**
 
